@@ -97,17 +97,19 @@
 
 constexpr bool FORWARD      {true};                     // Usable for the switchRotation method.
 constexpr bool REVERSE     {false};                     // Usable for the switchRotation method.
+constexpr uint8_t DPIN_PD7     {7};                     // 7 = PD7 Arduino D7 Forward_Pin
+constexpr uint8_t DPIN_PB0     {8};                     // 8 = PB0 Arduino D8 Reverse_Pin 
 constexpr uint16_t DEFAULT_DUTY {PWM_FREQ_PRELOAD/2};   // Default is 50%
-constexpr uint16_t  MOTOR_WAIT {1};                     // Value in ms
+constexpr uint16_t MOTOR_WAIT  {1};                     // Value in ms
 
 //////////////////////////////////////////////////////////////////////////////
 /// @brief Class definition for the control of a DC brush motor.
 /// 
 //////////////////////////////////////////////////////////////////////////////
 class MotorControl {
-    
+
   public:
-    MotorControl(uint8_t forwardPin = 7, uint8_t reversePin = 8) : 
+    MotorControl(uint8_t forwardPin = DPIN_PD7, uint8_t reversePin = DPIN_PB0) :
     _forwardPin(forwardPin), 
     _reversePin(reversePin) {
       pinModeFast(_forwardPin, OUTPUT);
