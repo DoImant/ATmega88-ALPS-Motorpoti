@@ -19,7 +19,6 @@
 
 #include <Arduino.h>
 #include <avr/sleep.h>        // this AVR library contains the methods that controls the sleep modes
-#include <avr/wdt.h>
 
 //#define IR_USE_AVR_TIMER2   // IRremote Ver <=3.1.1 ATMega88 only: Without this definition, IRremote cannot be compiled.
 #define DECODE_NEC
