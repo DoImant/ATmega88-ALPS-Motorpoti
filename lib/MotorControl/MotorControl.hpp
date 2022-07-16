@@ -8,6 +8,9 @@
 /// 
 /// @date 2021-05-20
 /// @version 1.0
+///
+/// @date 2022-07-17
+/// - Changed #defines to constexpr
 /// 
 /// @copyright Copyright (c) 2021 Kai R.
 /// 
@@ -16,6 +19,10 @@
 #include <Arduino.h>
 #include <digitalWriteFast.h>
 #include <util/atomic.h>
+
+//////////////////////////////////////////////////
+// Definitions
+//////////////////////////////////////////////////
 
 // #define DEBUGMOTOR
 // #define MC_TIMER2    // Enable if Timer2 is to be used
@@ -84,10 +91,14 @@
   #define PWM_IS_ENABLED (TCCR1A & _BV(COM1B1))
 #endif
 
-#define FORWARD true                         // Usable for the switchRotation method.
-#define REVERSE false                        // Usable for the switchRotation method.
-#define DEFAULT_DUTY (PWM_FREQ_PRELOAD/2)    // Default is 50%
-#define MOTOR_WAIT  1                        // Value in ms
+//////////////////////////////////////////////////
+// Global constants and variables
+//////////////////////////////////////////////////
+
+constexpr bool FORWARD      {true};                     // Usable for the switchRotation method.
+constexpr bool REVERSE     {false};                     // Usable for the switchRotation method.
+constexpr uint16_t DEFAULT_DUTY {PWM_FREQ_PRELOAD/2};   // Default is 50%
+constexpr uint16_t  MOTOR_WAIT {1};                     // Value in ms
 
 //////////////////////////////////////////////////////////////////////////////
 /// @brief Class definition for the control of a DC brush motor.

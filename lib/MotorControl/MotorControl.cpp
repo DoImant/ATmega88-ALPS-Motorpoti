@@ -111,7 +111,7 @@ void MotorControl::stop() {
 /// 
 /// @param speed 
 ///
-/// speed ist Duty cycle in percent
+/// Speed is duty cycle in percent
 /// 100 = full speed, 50 = half speed, 0 = stop
 //////////////////////////////////////////////////////////////////////////////
 void MotorControl::setSpeed(uint8_t speed) {
