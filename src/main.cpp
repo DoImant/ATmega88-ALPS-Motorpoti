@@ -99,7 +99,7 @@ void setup() {
   myMotor.setSpeed(MOTOR_SPEED);
   pinModeFast(L293_ENABLE_PIN, OUTPUT);
 
-  enableTimer.start();   // new
+  enableTimer.start(); 
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -158,7 +158,7 @@ void loop() {
 void doAlpsMotorAction(uint16_t command) {
   if (digitalReadFast(L293_ENABLE_PIN)) {
     digitalWriteFast(L293_ENABLE_PIN, LOW);   // Switch motordriver power on (LOW because of PNP-MOSFet)
-    _delay_ms(L293_ENABLE_DELAY);
+    delay(L293_ENABLE_DELAY);
   }
   switch (command) {
     case IR_MOTOR_FWD_CODE:
